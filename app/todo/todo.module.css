@@ -1,0 +1,193 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	background: linear-gradient(
+		135deg,
+		rgba(0, 0, 0, 0.8),
+		rgba(34, 34, 34, 0.9)
+	);
+	color: #e0e0e0;
+	font-family: "Poppins", sans-serif;
+}
+
+.title {
+	font-size: 2.5rem;
+	margin-bottom: 1.5rem;
+	color: #ffffff;
+	text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.inputContainer {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1.5rem;
+}
+
+.input {
+	flex: 1;
+	padding: 0.75rem;
+	border: none;
+	border-radius: 8px;
+	margin-right: 0.5rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	font-size: 1rem;
+	background: rgba(255, 255, 255, 0.1);
+	color: #ffffff;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.addButton {
+	padding: 0.75rem 1.5rem;
+	background: linear-gradient(
+		135deg,
+		rgba(255, 69, 58, 0.8),
+		rgba(255, 159, 10, 0.8)
+	);
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 1rem;
+	font-weight: 600;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.addButton:hover {
+	transform: scale(1.05);
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.todoList {
+	list-style: none;
+	padding: 0;
+	width: 100%;
+	max-width: 500px;
+}
+
+.todoItem {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.75rem 1rem;
+	margin: 0.5rem 0;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	width: 80%;
+	max-width: 400px;
+	justify-content: space-between;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	color: #ffffff;
+	position: relative;
+	gap: 1rem;
+}
+
+.todoItem:hover {
+	transform: scale(1.02);
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+}
+
+.todoItem label {
+	margin-left: 0.5rem;
+	font-size: 1.1rem;
+	color: #555;
+}
+
+.todoItem .icon {
+	margin-left: 0.5rem;
+	color: rgba(255, 255, 255, 0.7);
+	transition: color 0.3s ease;
+}
+
+.todoItem:hover .icon {
+	color: #ffffff;
+}
+
+.todoItem input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	accent-color: #4caf50; /* Modern green checkbox */
+	border-radius: 4px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.todoItem span {
+	flex: 1;
+	font-size: 1.1rem;
+	color: #ffffff;
+	word-break: break-word;
+}
+
+.completed {
+	text-decoration: line-through;
+	color: rgba(200, 200, 200, 0.7);
+}
+
+.deleteButton {
+	background: linear-gradient(
+		135deg,
+		rgba(255, 69, 58, 0.8),
+		rgba(255, 0, 0, 0.8)
+	);
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+	font-size: 0.9rem;
+	font-weight: 600;
+	transition: background 0.2s ease, transform 0.2s ease;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: linear-gradient(
+		135deg,
+		rgba(255, 69, 58, 0.8),
+		rgba(255, 0, 0, 0.8)
+	);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.deleteButton:hover {
+	background: linear-gradient(
+		135deg,
+		rgba(255, 0, 0, 0.9),
+		rgba(200, 0, 0, 0.9)
+	);
+	transform: scale(1.1);
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+.deleteButton .icon {
+	color: #ffffff;
+	width: 20px;
+	height: 20px;
+}
+
+.animate {
+	animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
