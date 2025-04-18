@@ -18,6 +18,46 @@ const _ = require('lodash');
 // orderFood(serverFood);
 // console.log("Meanwhile, you can browse your phone 📱.");
 
+// =========================== LRU ==================================
+/* const createLRUCache = (capacity) => {
+	const cache = new Map();
+
+	const get = (key) => {
+		if (!cache.has(key)) {
+			return -1;
+		}
+		const value = cache.get(key);
+		cache.delete(key);
+		cache.set(key, value);
+		return value;
+	}
+
+	const put = (key, value) => {
+		if (cache.has(key)) {
+			cache.delete(key);
+		} else if (cache.size >= capacity) {
+			const arr = Array.from(cache.keys());
+			const lu = arr[0];
+			cache.delete(lu);
+		}
+		cache.set(key, value);
+	}
+
+	return {
+		cache,
+		get,
+		put
+	}
+}
+
+const lru = createLRUCache(2);
+lru.put(1, 'A');
+lru.put(2, 'B');
+lru.get(1);
+lru.get(2);
+lru.put(3, 'C');
+console.log(lru.cache); */
+
 
 // // ==============================Promise==============
 // const fetchMultipleUsers = async () => {
@@ -280,4 +320,3 @@ const res = mergeSort([29, 10, 14, 37, 14]);
 console.log({ res }); */
 
 
-// ===========================
