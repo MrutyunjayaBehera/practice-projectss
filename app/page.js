@@ -1,7 +1,10 @@
+import SpinnyTechRound1 from '@/components/SpinnyTechRound1';
+import './globals.css';
+
 export default function Home() {
 	return (
-		<div className="flex flex-col justify-center items-center min-h-screen text-center">
-			DASHBOARD
+		<div>
+			<h1>PRACTICE, MAKES A MAN PERFECT</h1>
 		</div>
-	);
+	)
 }
