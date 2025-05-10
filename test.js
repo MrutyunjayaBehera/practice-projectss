@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const { resolve } = require('styled-jsx/css');
 
 
 // const serverFood = (food) => {
@@ -320,3 +321,21 @@ const res = mergeSort([29, 10, 14, 37, 14]);
 console.log({ res }); */
 
 
+const customPromiseAll = (promises) => {
+	return new Promise((resolve, reject) => {
+		let results = [], completions = 0;
+		promises.forEach((p, index) => {
+			p.resolve()
+				.then((result) => {
+					results[index] = result;
+					completions++;
+					if (completions === promises.length) {
+						resolve(results);
+					}
+				})
+				.catch((err) => {
+					reject(err);
+				})
+		})
+	})
+}
