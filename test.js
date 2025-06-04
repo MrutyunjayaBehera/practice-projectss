@@ -321,21 +321,163 @@ const res = mergeSort([29, 10, 14, 37, 14]);
 console.log({ res }); */
 
 
-const customPromiseAll = (promises) => {
-	return new Promise((resolve, reject) => {
-		let results = [], completions = 0;
-		promises.forEach((p, index) => {
-			p.resolve()
-				.then((result) => {
-					results[index] = result;
-					completions++;
-					if (completions === promises.length) {
-						resolve(results);
-					}
-				})
-				.catch((err) => {
-					reject(err);
-				})
-		})
-	})
-}
+// const customPromiseAll = (promises) => {
+// 	return new Promise((resolve, reject) => {
+// 		let results = [], completions = 0;
+// 		promises.forEach((p, index) => {
+// 			p.resolve()
+// 				.then((result) => {
+// 					results[index] = result;
+// 					completions++;
+// 					if (completions === promises.length) {
+// 						resolve(results);
+// 					}
+// 				})
+// 				.catch((err) => {
+// 					reject(err);
+// 				})
+// 		})
+// 	})
+// }
+
+
+// ============================================== CLOSURE ============================
+// function createCounter() {
+// 	let counter = 0;
+// 	return function() {
+// 		return counter++;
+// 	}
+// }
+// function createMultiplier(n) {
+// 	return function (x) {
+// 		return n * x;
+// 	}
+// }
+// const counter = createCounter();
+// const double = createMultiplier(2);
+// const triple = createMultiplier(3);
+// console.log(double(2));
+// console.log(triple(3));
+
+
+// ========================================== HOISTING ===================================
+// declaration move to top, assignments don't
+// console.log({ a });
+// console.log({ b });
+// console.log('greet:: ', greet());
+// var a = 10;
+// let b = 20;
+// function greet() {
+// 	console.log('Yo!!!');
+// }
+
+
+// ========================================= THIS, CALL, BIND, APPLY ======================================
+// console.log(this);
+// const user = {
+// 	name: 'MJ',
+// 	sayHi() {
+// 		console.log('this name:: ', this.name);
+// 	}
+// }
+// const newUser = {
+// 	name: 'MJ',
+// 	sayHi: () => {
+// 		console.log('this arrow fun name:: ', this.name); // undefined, arrow function dont bind this
+// 	}
+// }
+// class Car {
+// 	constructor(model) {
+// 		this.model = model;
+// 	}
+// }
+// const myCar = new Car('BMW'); // with new, this refers to the newly created object.
+// const team = {
+// 	name: 'React Avengers',
+// 	members: ['Thor', 'Ironman'],
+// 	print() {
+// 		this.members.forEach(function(member) {
+// 			console.log(`${member} is part of ${this.name}`); // can be fixed using arrow function bcoz it does not have its own this, so it get this from its lexical scope, or bind the reg func, or store this in that
+// 		}.bind(this));
+// 	}
+// };
+// team.print();
+
+
+// ========================================== PUB - SUB system ==========================
+// class EventEmitter {
+// 	constructor() {
+// 		this.events = {};
+// 	}
+// 	on(eventName, callback) {
+// 		if (!this.events[eventName]) {
+// 			this.events[eventName] = [];
+// 		}
+// 		this.events[eventName].push(callback);
+// 	}
+// 	off(eventName, callback) {
+// 		if (!this.events[eventName]) return;
+// 		this.events[eventName] = this.events[eventName].filter((cb) => cb !== callback);
+// 	}
+// 	emit(eventName, data) {
+// 		console.log(this.events);
+// 		if (!this.events[eventName]) return;
+// 		this.events[eventName].forEach((cb) => cb(data));
+// 	}
+// }
+// const emitter = new EventEmitter();
+// function logData(data) {
+// 	console.log('data received:: ', data);
+// }
+// emitter.on('data', logData);
+// emitter.emit('data', { user: 'MJ', message: '🔥 Event system working' });
+
+
+// ======================================= CALL BIND APPLY ===================================
+// function greet() {
+// 	console.log(`Hello, I am ${this.name}`);
+// };
+// function sum(a, b) {
+// 	console.log(a + b);
+// }
+// const button = {
+// 	text: 'Click Me!',
+// 	handleClick() {
+// 		console.log(this.text);
+// 	}
+// }
+// const user = { name: 'MJ' };
+// greet.call(user); // .call with custom this, calls immedietely
+// sum.call(null, 2, 3); // call(thisArg, ...arg)
+// sum.apply(null, [2, 4]); // came as .call, but args inside []
+// const bindGreet = greet.bind(user); // bind(thisArg, ...args)
+// bindGreet();
+// setTimeout(button.handleClick, 1000);
+// setTimeout(button.handleClick.bind(button), 1000);
+
+
+// ================================= MAP {} ========================================
+// const map = new Map();
+// map.set('name', 'MJ');
+// map.set('age', 28);
+// console.log(map.entries());
+
+
+// =============================== PROTOTYPE, __PROTO__ ============================
+// class MJ {
+// 	constructor(name) {
+// 		this.name = name;
+// 	}
+// };
+// MJ.prototype.powers = ['fly', 'code'];
+// const clone1 = new MJ('Clone1');
+// console.log(clone1.powers);
+
+
+// =============================== MAP, FILTER, REDUCE ===============================
+// const fruits = ['apple', 'banana', 'apple', 'orange'];
+// const b = fruits.reduce((acc, cv, ci, ar) => {
+// 	acc[cv] = (acc[cv] || 0) + 1;
+// 	return acc;
+// }, []);
+// console.log({ b });
